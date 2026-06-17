@@ -1,0 +1,964 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patrícia dos Santos — Psicóloga Clínica & Corporal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAGgMGAP8AJgBPRUYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARERERERAAAREiIiIhEQAxEiERESIREDEiERIhEiEQMiIREiERIhAyIhERERESEDIiIRERERIQMiIiIhEREhAyIiIiIhESEDIiIiIiIRIQMiIiESIhIhAxIiIRIiIhEDMSIiIiIhEQAzEiIiIhEQAAMREREREQD//wAA4AMAAMABAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAMABAADgAwAA"
+      rel="icon"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              sage: {
+                50: '#f4f7f4',
+                100: '#e2ece0',
+                200: '#c3d9be',
+                300: '#9ec097',
+                400: '#72a169',
+                500: '#507a48',
+                600: '#3d5e37',
+                700: '#2e4729',
+                DEFAULT: '#507a48',
+              },
+              clay: {
+                50: '#faf6f2',
+                100: '#f3e9df',
+                200: '#e5cebc',
+                300: '#d4ae93',
+                400: '#bf8963',
+                500: '#a97048',
+                600: '#8a5838',
+                700: '#6b4129',
+                DEFAULT: '#a97048',
+              },
+              warm: {
+                50: '#fdfcfa',
+                100: '#f7f3ee',
+                200: '#ede4d8',
+                DEFAULT: '#f7f3ee',
+              },
+            },
+            fontFamily: {
+              display: ['Cormorant Garamond', 'Georgia', 'serif'],
+              body: ['DM Sans', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: 'DM Sans', system-ui, sans-serif;
+        background-color: #fdfcfa;
+        color: #2e2e2e;
+      }
+      .font-display {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+      }
+      nav a {
+        transition: color 0.2s;
+      }
+      nav a:hover {
+        color: #507a48;
+      }
+      .card-service {
+        transition:
+          box-shadow 0.2s,
+          transform 0.2s;
+      }
+      .card-service:hover {
+        box-shadow: 0 6px 24px rgba(80, 122, 72, 0.1);
+        transform: translateY(-2px);
+      }
+      .btn-primary {
+        background: #507a48;
+        color: #fff;
+        transition: background 0.2s;
+      }
+      .btn-primary:hover {
+        background: #3d5e37;
+      }
+      .btn-outline {
+        border: 1.5px solid #507a48;
+        color: #507a48;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .btn-outline:hover {
+        background: #507a48;
+        color: #fff;
+      }
+      input,
+      textarea {
+        transition: border-color 0.2s;
+      }
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #507a48;
+        box-shadow: 0 0 0 3px rgba(80, 122, 72, 0.12);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <!-- ── NAVBAR ─────────────────────────────────────── -->
+    <header
+      class="fixed top-0 inset-x-0 z-50 bg-[#fdfcfa]/90 backdrop-blur border-b border-warm-200"
+    >
+      <div
+        class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between"
+      >
+        <a href="#hero" class="flex flex-col leading-none">
+          <span class="font-display text-xl font-medium text-sage-700"
+            >Patrícia dos Santos</span
+          >
+          <span
+            class="text-[11px] tracking-widest text-clay-500 uppercase mt-0.5"
+            >Psicóloga Clínica &amp; Corporal</span
+          >
+        </a>
+        <!-- Desktop nav -->
+        <nav
+          class="hidden md:flex items-center gap-7 text-sm font-body text-stone-500"
+        >
+          <a href="#sobre">Sobre</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#consultor">Consultório</a>
+          <a href="#online">Online</a>
+          <a
+            href="#contactos"
+            class="btn-primary px-5 py-2 rounded-full text-sm font-medium ml-2"
+            >Marcar consulta</a
+          >
+        </nav>
+        <!-- Mobile hamburger -->
+        <button
+          id="menu-btn"
+          class="md:hidden p-2 rounded text-stone-500 focus:ring-2 focus:ring-sage-400"
+          aria-label="Abrir menu"
+        >
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+      <!-- Mobile menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden px-6 pb-4 flex flex-col gap-3 text-sm text-stone-600 font-body"
+      >
+        <a href="#sobre" onclick="closeMobileMenu()">Sobre</a>
+        <a href="#servicos" onclick="closeMobileMenu()">Serviços</a>
+        <a href="#consultor" onclick="closeMobileMenu()">Consultório</a>
+        <a href="#online" onclick="closeMobileMenu()">Online</a>
+        <a
+          href="#contactos"
+          onclick="closeMobileMenu()"
+          class="btn-primary text-center px-5 py-2 rounded-full font-medium mt-1"
+          >Marcar consulta</a
+        >
+      </div>
+    </header>
+
+    <!-- ── HERO ───────────────────────────────────────── -->
+    <section id="hero" class="pt-32 pb-20 px-6 max-w-5xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-xs tracking-widest uppercase text-clay-500 mb-4">
+            Lisboa · Atendimento presencial &amp; online
+          </p>
+          <h1
+            class="font-display text-5xl md:text-6xl font-light text-sage-700 leading-tight mb-6"
+          >
+            Um espaço para<br /><em>cuidar, sentir<br />e transformar.</em>
+          </h1>
+          <p class="text-stone-500 text-base leading-relaxed mb-8 max-w-md">
+            Acolho cada pessoa com empatia e respeito, numa abordagem
+            terapêutica que integra mente e corpo — promovendo equilíbrio,
+            autoconhecimento e crescimento pessoal.
+          </p>
+          <div class="flex gap-3 flex-wrap mb-6">
+            <span
+              class="text-xs bg-warm-200 text-clay-600 rounded-full px-3 py-1.5 tracking-wide"
+              >🇵🇹 Português</span
+            >
+            <span
+              class="text-xs bg-warm-200 text-clay-600 rounded-full px-3 py-1.5 tracking-wide"
+              >🇫🇷 Francês</span
+            >
+          </div>
+          <div class="flex gap-3 flex-wrap">
+            <a
+              href="#contactos"
+              class="btn-primary px-6 py-3 rounded-full text-sm font-medium"
+              >Marcar consulta</a
+            >
+            <a
+              href="#sobre"
+              class="btn-outline px-6 py-3 rounded-full text-sm font-medium"
+              >Saber mais</a
+            >
+          </div>
+        </div>
+        <div class="flex justify-center">
+          <!-- Foto: substitua src pelo caminho real da imagem -->
+          <div class="relative">
+            <div
+              class="w-72 h-80 md:w-80 md:h-96 rounded-3xl bg-warm-200 flex items-center justify-center text-warm-200 overflow-hidden"
+            >
+              <img
+                src="./assets/PatriciaSantos.jpeg"
+                alt="Patrícia dos Santos"
+                class="w-full h-full object-cover"
+                onerror="
+                  this.style.display = 'none'
+                  this.nextElementSibling.style.display = 'flex'
+                "
+              />
+              <div
+                class="hidden w-full h-full flex-col items-center justify-center text-clay-300 gap-2"
+              >
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                >
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+                </svg>
+                <span class="text-xs"></span>
+              </div>
+            </div>
+            <div
+              class="absolute -bottom-4 -right-4 w-24 h-24 rounded-2xl bg-sage-100 -z-10"
+            ></div>
+            <div
+              class="absolute -top-4 -left-4 w-16 h-16 rounded-xl bg-clay-100 -z-10"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SOBRE ──────────────────────────────────────── -->
+    <section id="sobre" class="py-20 px-6 bg-warm-100">
+      <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div class="order-2 md:order-1">
+          <div
+            class="w-full h-full rounded-2xl bg-warm-200 overflow-hidden flex items-center justify-center"
+          >
+            <img
+              src="./assets/Liberdade.jpeg  "
+              alt="Liberdade"
+              class="w-full h-full object-cover"
+              onerror="
+                this.style.display = 'none'
+                this.nextElementSibling.style.display = 'flex'
+              "
+            />
+            <div
+              class="hidden w-full h-full flex-col items-center justify-center text-clay-300 gap-2"
+            >
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.2"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="3" />
+                <path d="M3 9h18M9 21V9" />
+              </svg>
+              <span class="text-xs">foto inspiracional</span>
+            </div>
+          </div>
+        </div>
+        <div class="order-1 md:order-2">
+          <p class="text-xs tracking-widest uppercase text-clay-500 mb-3">
+            Sobre mim
+          </p>
+          <h2 class="font-display text-4xl font-light text-sage-700 mb-6">
+            Seja bem-vindo/a
+          </h2>
+          <p class="text-stone-500 leading-relaxed mb-4">
+            Sou Psicóloga Clínica e Psicoterapeuta Corporal com abordagem
+            Biodinâmica. Acredito que cada pessoa tem em si os recursos
+            necessários para recuperar o equilíbrio, a vitalidade e a capacidade
+            de viver com mais autenticidade.
+          </p>
+          <p class="text-stone-500 leading-relaxed mb-4">
+            Na psicoterapia corporal, o corpo é muito mais do que um suporte — é
+            testemunha da nossa história emocional. Juntos, criamos um espaço
+            seguro para que cada pessoa explore, expanda e vivencie o seu
+            processo de transformação.
+          </p>
+          <p class="text-stone-500 leading-relaxed">
+            Baseio o meu trabalho na empatia, no respeito e na confiança,
+            acompanhando cada pessoa no seu caminho único de descoberta,
+            integração e crescimento pessoal.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SERVIÇOS ───────────────────────────────────── -->
+    <section id="servicos" class="py-20 px-6">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <p class="text-xs tracking-widest uppercase text-clay-500 mb-3">
+            Áreas de atuação
+          </p>
+          <h2 class="font-display text-4xl font-light text-sage-700">
+            Como posso ajudar
+          </h2>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            class="card-service bg-white border border-warm-200 rounded-2xl p-6"
+          >
+            <div
+              class="w-10 h-10 rounded-xl bg-sage-50 flex items-center justify-center mb-4"
+            >
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#507a48"
+                stroke-width="1.5"
+              >
+                <path
+                  d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"
+                />
+                <circle cx="12" cy="9" r="2.5" />
+              </svg>
+            </div>
+            <h3 class="font-body font-medium text-stone-800 mb-2">
+              Psicologia Clínica
+            </h3>
+            <p class="text-stone-500 text-sm leading-relaxed">
+              Acompanhamento individual para ansiedade, depressão, dificuldades
+              relacionais e situações de crise emocional.
+            </p>
+          </div>
+
+          <div
+            class="card-service bg-white border border-warm-200 rounded-2xl p-6"
+          >
+            <div
+              class="w-10 h-10 rounded-xl bg-sage-50 flex items-center justify-center mb-4"
+            >
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#507a48"
+                stroke-width="1.5"
+              >
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                />
+              </svg>
+            </div>
+            <h3 class="font-body font-medium text-stone-800 mb-2">
+              Psicoterapia Corporal
+            </h3>
+            <p class="text-stone-500 text-sm leading-relaxed">
+              Abordagem Biodinâmica que integra corpo e mente, trabalhando
+              padrões emocionais armazenados no corpo.
+            </p>
+          </div>
+
+          <div
+            class="card-service bg-white border border-warm-200 rounded-2xl p-6"
+          >
+            <div
+              class="w-10 h-10 rounded-xl bg-sage-50 flex items-center justify-center mb-4"
+            >
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#507a48"
+                stroke-width="1.5"
+              >
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <h3 class="font-body font-medium text-stone-800 mb-2">
+              Mediação Familiar
+            </h3>
+            <p class="text-stone-500 text-sm leading-relaxed">
+              Acompanhamento de conflitos familiares e conjugais, promovendo
+              diálogo, compreensão e acordos sustentáveis.
+            </p>
+          </div>
+
+          <div
+            class="card-service bg-white border border-warm-200 rounded-2xl p-6"
+          >
+            <div
+              class="w-10 h-10 rounded-xl bg-sage-50 flex items-center justify-center mb-4"
+            >
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#507a48"
+                stroke-width="1.5"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v4l3 3" />
+              </svg>
+            </div>
+            <h3 class="font-body font-medium text-stone-800 mb-2">
+              Constelação Familiar
+            </h3>
+            <p class="text-stone-500 text-sm leading-relaxed">
+              Método vivencial que explora dinâmicas familiares e ancestrais
+              para libertar padrões que limitam a vida presente.
+            </p>
+          </div>
+
+          <div
+            class="card-service bg-white border border-sage-100 rounded-2xl p-6 border-2 border-sage-300"
+          >
+            <div
+              class="w-10 h-10 rounded-xl bg-sage-50 flex items-center justify-center mb-4"
+            >
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#507a48"
+                stroke-width="1.5"
+              >
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <path d="M8 21h8M12 17v4" />
+              </svg>
+            </div>
+            <span
+              class="text-[11px] bg-sage-100 text-sage-700 rounded-full px-2 py-0.5 font-medium tracking-wide mb-2 inline-block"
+              >Disponível online</span
+            >
+            <h3 class="font-body font-medium text-stone-800 mb-2">
+              Terapia Online
+            </h3>
+            <p class="text-stone-500 text-sm leading-relaxed">
+              Sessões seguras e confidenciais por videochamada, com a mesma
+              qualidade do atendimento presencial.
+            </p>
+          </div>
+
+          <div
+            class="card-service bg-white border border-warm-200 rounded-2xl p-6"
+          >
+            <div
+              class="w-10 h-10 rounded-xl bg-sage-50 flex items-center justify-center mb-4"
+            >
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#507a48"
+                stroke-width="1.5"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <h3 class="font-body font-medium text-stone-800 mb-2">
+              Massagem Biodinâmica
+            </h3>
+            <p class="text-stone-500 text-sm leading-relaxed">
+              Massagem terapêutica de abordagem holística que pode ser combinada
+              com a psicoterapia para uma integração mais profunda.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONSULTÓRIO ────────────────────────────────── -->
+    <section id="consultor" class="py-20 px-6 bg-warm-100">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-10">
+          <p class="text-xs tracking-widest uppercase text-clay-500 mb-3">
+            Lisboa
+          </p>
+          <h2 class="font-display text-4xl font-light text-sage-700">
+            O Consultório
+          </h2>
+        </div>
+        <!-- Galeria: substitua os src pelas fotos reais -->
+        <div class="grid gap-3">
+          <div
+            class="col-span-2 row-span-2 rounded-2xl bg-warm-200 overflow-hidden h-full md:h-full flex items-center justify-center text-clay-300 text-xs gap-2 flex-col"
+          >
+            <img
+              src="./assets/SofaBuda.jpeg"
+              alt="Consultório"
+              class="w-full h-full object-cover"
+              onerror="
+                this.style.display = 'none'
+                this.nextElementSibling.style.display = 'flex'
+              "
+            />
+            <div
+              class="hidden w-full h-full items-center justify-center text-clay-300 gap-2"
+            >
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.2"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="3" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <path d="M21 15l-5-5L5 21" />
+              </svg>
+              <span>foto consultório</span>
+            </div>
+          </div>
+          <div
+            class="rounded-2xl bg-warm-200 overflow-hidden h-full md:h-full flex items-center justify-center text-clay-300 text-xs gap-1 flex-col"
+          >
+            <img
+              src="./assets/Buda.jpeg"
+              alt="Consultório"
+              class="w-full h-full object-cover"
+              onerror="
+                this.style.display = 'none'
+                this.nextElementSibling.style.display = 'flex'
+              "
+            />
+            <div
+              class="hidden w-full h-full flex-col items-center justify-center text-clay-300 gap-1"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.2"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="3" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <path d="M21 15l-5-5L5 21" />
+              </svg>
+              <span>Consultório</span>
+            </div>
+          </div>
+          <div
+            class="rounded-2xl bg-warm-200 overflow-hidden h-full md:h-full flex items-center justify-center text-clay-300 text-xs gap-1 flex-col"
+          >
+            <img
+              src="./assets/Cama.jpeg"
+              alt="Consultório"
+              class="w-full h-full object-cover"
+              onerror="
+                this.style.display = 'none'
+                this.nextElementSibling.style.display = 'flex'
+              "
+            />
+            <div
+              class="hidden w-full h-full flex-col items-center justify-center text-clay-300 gap-1"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.2"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="3" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <path d="M21 15l-5-5L5 21" />
+              </svg>
+              <span>Consultório</span>
+            </div>
+          </div>
+          <div
+            class="col-span-2 rounded-2xl bg-warm-200 overflow-hidden h-full md:h-full flex items-center justify-center text-clay-300 text-xs gap-1 flex-col"
+          >
+            <img
+              src="./assets/Affectif.jpeg"
+              alt="Consultório"
+              class="w-full h-full object-cover"
+              onerror="
+                this.style.display = 'none'
+                this.nextElementSibling.style.display = 'flex'
+              "
+            />
+            <div
+              class="hidden w-full h-full flex-col items-center justify-center text-clay-300 gap-1"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.2"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="3" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <path d="M21 15l-5-5L5 21" />
+              </svg>
+              <span>Consultório</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TERAPIA ONLINE ─────────────────────────────── -->
+    <section id="online" class="py-20 px-6">
+      <div class="max-w-5xl mx-auto">
+        <div
+          class="bg-sage-50 rounded-3xl p-8 md:p-12 grid md:grid-cols-2 gap-10 items-center"
+        >
+          <div>
+            <p class="text-xs tracking-widest uppercase text-clay-500 mb-3">
+              Atendimento à distância
+            </p>
+            <h2 class="font-display text-4xl font-light text-sage-700 mb-5">
+              Terapia Online
+            </h2>
+            <p class="text-stone-500 leading-relaxed mb-4">
+              A terapia online oferece um espaço seguro, confidencial e flexível
+              para continuar ou iniciar o seu processo terapêutico a partir de
+              qualquer lugar.
+            </p>
+            <ul class="space-y-3 mb-7">
+              <li class="flex gap-3 text-sm text-stone-500">
+                <span
+                  class="w-5 h-5 rounded-full bg-sage-200 flex-shrink-0 flex items-center justify-center mt-0.5"
+                >
+                  <svg
+                    width="11"
+                    height="11"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    stroke="#3d5e37"
+                    stroke-width="2"
+                  >
+                    <path d="M2 6l3 3 5-5" />
+                  </svg>
+                </span>
+                Mesma qualidade e profundidade do acompanhamento presencial
+              </li>
+              <li class="flex gap-3 text-sm text-stone-500">
+                <span
+                  class="w-5 h-5 rounded-full bg-sage-200 flex-shrink-0 flex items-center justify-center mt-0.5"
+                >
+                  <svg
+                    width="11"
+                    height="11"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    stroke="#3d5e37"
+                    stroke-width="2"
+                  >
+                    <path d="M2 6l3 3 5-5" />
+                  </svg>
+                </span>
+                Maior flexibilidade de horário e continuidade do acompanhamento
+              </li>
+              <li class="flex gap-3 text-sm text-stone-500">
+                <span
+                  class="w-5 h-5 rounded-full bg-sage-200 flex-shrink-0 flex items-center justify-center mt-0.5"
+                >
+                  <svg
+                    width="11"
+                    height="11"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    stroke="#3d5e37"
+                    stroke-width="2"
+                  >
+                    <path d="M2 6l3 3 5-5" />
+                  </svg>
+                </span>
+                Ideal para quem vive no estrangeiro ou tem agenda exigente
+              </li>
+            </ul>
+            <a
+              href="https://wa.me/351966046488"
+              class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebc59] text-white text-sm font-medium rounded-full px-6 py-3 transition-colors"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+                />
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.534 5.858L.057 23.57a.75.75 0 0 0 .918.918l5.785-1.476A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.656-.502-5.184-1.38l-.372-.214-3.856.985.998-3.767-.23-.386A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"
+                />
+              </svg>
+              WhatsApp: (+351) 966 046 488
+            </a>
+          </div>
+          <div class="flex justify-center">
+            <div
+              class="w-64 h-64 rounded-2xl bg-sage-100 flex flex-col items-center justify-center text-sage-400 gap-3"
+            />
+            <img
+              src="./assets/Online.jpeg"
+              alt="Consultório"
+              class="w-full h-full object-cover"
+              onerror="
+                this.style.display = 'none'
+                this.nextElementSibling.style.display = 'flex'
+              "
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONTACTOS ──────────────────────────────────── -->
+    <section id="contactos" class="py-20 px-6 bg-warm-100">
+      <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+        <div>
+          <p class="text-xs tracking-widest uppercase text-clay-500 mb-3">
+            Fale comigo
+          </p>
+          <h2 class="font-display text-4xl font-light text-sage-700 mb-8">
+            Contactos
+          </h2>
+          <div class="space-y-5">
+            <div class="flex gap-4 items-start">
+              <div
+                class="w-9 h-9 rounded-xl bg-sage-100 flex items-center justify-center flex-shrink-0"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#507a48"
+                  stroke-width="1.5"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-stone-700 mb-0.5">Morada</p>
+                <p class="text-sm text-stone-500 leading-relaxed">
+                  Rua Mártires Ferrão, 26 – 1.º Esq.<br />1050-160 Lisboa<br /><span
+                    class="text-clay-500"
+                    >Metro: Picoas / Parque</span
+                  >
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div
+                class="w-9 h-9 rounded-xl bg-sage-100 flex items-center justify-center flex-shrink-0"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#507a48"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6 6l.93-.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-stone-700 mb-0.5">
+                  Telefone
+                </p>
+                <a
+                  href="tel:+351966046488"
+                  class="text-sm text-sage-600 hover:underline"
+                  >(+351) 966 046 488</a
+                >
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div
+                class="w-9 h-9 rounded-xl bg-sage-100 flex items-center justify-center flex-shrink-0"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#507a48"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm font-medium text-stone-700 mb-0.5">Email</p>
+                <a
+                  href="mailto:faceaface.ps@gmail.com"
+                  class="text-sm text-sage-600 hover:underline"
+                  >faceaface.ps@gmail.com</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-body font-medium text-stone-700 mb-5">
+            Enviar mensagem
+          </h3>
+          <form class="space-y-4" onsubmit="handleFormSubmit(event)">
+            <div>
+              <label class="block text-xs text-stone-500 mb-1.5" for="nome"
+                >Nome</label
+              >
+              <input
+                id="nome"
+                type="text"
+                placeholder="O seu nome"
+                class="w-full border border-warm-200 rounded-xl px-4 py-2.5 text-sm bg-white focus:ring-2 focus:ring-sage-300 outline-none"
+              />
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs text-stone-500 mb-1.5" for="email"
+                  >Email</label
+                >
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="email@exemplo.com"
+                  class="w-full border border-warm-200 rounded-xl px-4 py-2.5 text-sm bg-white focus:ring-2 focus:ring-sage-300 outline-none"
+                />
+              </div>
+              <div>
+                <label class="block text-xs text-stone-500 mb-1.5" for="tel"
+                  >Telefone</label
+                >
+                <input
+                  id="tel"
+                  type="tel"
+                  placeholder="+351 ..."
+                  class="w-full border border-warm-200 rounded-xl px-4 py-2.5 text-sm bg-white focus:ring-2 focus:ring-sage-300 outline-none"
+                />
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs text-stone-500 mb-1.5" for="msg"
+                >Mensagem</label
+              >
+              <textarea
+                id="msg"
+                rows="4"
+                placeholder="Como posso ajudar?"
+                class="w-full border border-warm-200 rounded-xl px-4 py-2.5 text-sm bg-white focus:ring-2 focus:ring-sage-300 outline-none resize-none"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="btn-primary w-full py-3 rounded-full text-sm font-medium"
+            >
+              Enviar mensagem
+            </button>
+            <p
+              id="form-success"
+              class="hidden text-center text-sm text-sage-600"
+            >
+              ✓ Mensagem enviada! Entrarei em contacto brevemente.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ─────────────────────────────────────── -->
+    <footer class="py-8 px-6 border-t border-warm-200">
+      <div
+        class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4"
+      >
+        <div class="text-center md:text-left">
+          <span class="font-display text-lg text-sage-700"
+            >Patrícia dos Santos</span
+          >
+          <span class="text-stone-400 text-sm ml-2"
+            >· Psicóloga Clínica &amp; Corporal</span
+          >
+        </div>
+        <p class="text-xs text-stone-400">© 2026 · Lisboa · PT</p>
+      </div>
+    </footer>
+
+    <script>
+      const btn = document.getElementById('menu-btn')
+      const menu = document.getElementById('mobile-menu')
+      btn.addEventListener('click', () => menu.classList.toggle('hidden'))
+      function closeMobileMenu() {
+        menu.classList.add('hidden')
+      }
+
+      function handleFormSubmit(e) {
+        e.preventDefault()
+        const success = document.getElementById('form-success')
+        success.classList.remove('hidden')
+        e.target.reset()
+        setTimeout(() => success.classList.add('hidden'), 5000)
+      }
+    </script>
+  </body>
+</html>
