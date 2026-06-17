@@ -189,86 +189,124 @@
     </header>
 
     <!-- ── HERO ───────────────────────────────────────── -->
-    <section id="hero" class="pt-32 pb-20 px-6 max-w-5xl mx-auto">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <p class="text-xs tracking-widest uppercase text-clay-500 mb-4">
-            Lisboa · Atendimento presencial &amp; online
-          </p>
-          <h1
-            class="font-display text-5xl md:text-6xl font-light text-sage-700 leading-tight mb-6"
+    <section
+      id="hero"
+      class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden"
+    >
+      <!-- Vídeo de fundo: coloque o ficheiro zen.mp4 na pasta assets/ -->
+      <video
+        id="hero-video"
+        class="absolute inset-0 w-full h-full object-cover"
+        src="assets/zen.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="assets/zen-poster.jpg"
+      ></video>
+
+      <!-- Overlay gradiente duplo: escurece o vídeo e cria profundidade -->
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60"
+      ></div>
+      <!-- Toque de cor verde-sálvia subtil por baixo -->
+      <div class="absolute inset-0 bg-sage-900/20 mix-blend-multiply"></div>
+
+      <!-- Conteúdo centrado -->
+      <div class="relative z-10 text-center px-6 max-w-3xl mx-auto">
+        <p class="text-xs tracking-[0.25em] uppercase text-white/70 mb-6">
+          Lisboa · Atendimento presencial &amp; online
+        </p>
+        <h1
+          class="font-display text-5xl md:text-7xl font-light text-white leading-tight mb-6 drop-shadow-sm"
+        >
+          Um espaço para<br /><em>cuidar, sentir<br />e transformar.</em>
+        </h1>
+        <p
+          class="text-white/80 text-base md:text-lg leading-relaxed mb-4 max-w-xl mx-auto"
+        >
+          Acolho cada pessoa com empatia e respeito, numa abordagem terapêutica
+          que integra mente e corpo.
+        </p>
+        <div class="flex gap-3 justify-center flex-wrap mb-8">
+          <span
+            class="text-xs bg-white/15 backdrop-blur-sm text-white/90 rounded-full px-3 py-1.5 tracking-wide border border-white/20"
+            >🇵🇹 Português</span
           >
-            Um espaço para<br /><em>cuidar, sentir<br />e transformar.</em>
-          </h1>
-          <p class="text-stone-500 text-base leading-relaxed mb-8 max-w-md">
-            Acolho cada pessoa com empatia e respeito, numa abordagem
-            terapêutica que integra mente e corpo — promovendo equilíbrio,
-            autoconhecimento e crescimento pessoal.
-          </p>
-          <div class="flex gap-3 flex-wrap mb-6">
-            <span
-              class="text-xs bg-warm-200 text-clay-600 rounded-full px-3 py-1.5 tracking-wide"
-              >🇵🇹 Português</span
-            >
-            <span
-              class="text-xs bg-warm-200 text-clay-600 rounded-full px-3 py-1.5 tracking-wide"
-              >🇫🇷 Francês</span
-            >
-          </div>
-          <div class="flex gap-3 flex-wrap">
-            <a
-              href="#contactos"
-              class="btn-primary px-6 py-3 rounded-full text-sm font-medium"
-              >Marcar consulta</a
-            >
-            <a
-              href="#sobre"
-              class="btn-outline px-6 py-3 rounded-full text-sm font-medium"
-              >Saber mais</a
-            >
-          </div>
+          <span
+            class="text-xs bg-white/15 backdrop-blur-sm text-white/90 rounded-full px-3 py-1.5 tracking-wide border border-white/20"
+            >🇫🇷 Francês</span
+          >
         </div>
-        <div class="flex justify-center">
-          <!-- Foto: substitua src pelo caminho real da imagem -->
-          <div class="relative">
-            <div
-              class="w-72 h-80 md:w-80 md:h-96 rounded-3xl bg-warm-200 flex items-center justify-center text-warm-200 overflow-hidden"
-            >
-              <img
-                src="./assets/PatriciaSantos.jpeg"
-                alt="Patrícia dos Santos"
-                class="w-full h-full object-cover"
-                onerror="
-                  this.style.display = 'none'
-                  this.nextElementSibling.style.display = 'flex'
-                "
-              />
-              <div
-                class="hidden w-full h-full flex-col items-center justify-center text-clay-300 gap-2"
-              >
-                <svg
-                  width="48"
-                  height="48"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.2"
-                >
-                  <circle cx="12" cy="8" r="4" />
-                  <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-                </svg>
-                <span class="text-xs"></span>
-              </div>
-            </div>
-            <div
-              class="absolute -bottom-4 -right-4 w-24 h-24 rounded-2xl bg-sage-100 -z-10"
-            ></div>
-            <div
-              class="absolute -top-4 -left-4 w-16 h-16 rounded-xl bg-clay-100 -z-10"
-            ></div>
-          </div>
+        <div class="flex gap-3 justify-center flex-wrap">
+          <a
+            href="#contactos"
+            class="btn-primary px-7 py-3 rounded-full text-sm font-medium shadow-lg"
+            >Marcar consulta</a
+          >
+          <a
+            href="#sobre"
+            class="px-7 py-3 rounded-full text-sm font-medium border border-white/40 text-white hover:bg-white/10 transition-colors backdrop-blur-sm"
+            >Saber mais</a
+          >
         </div>
       </div>
+
+      <!-- Seta scroll suave -->
+      <a
+        href="#sobre"
+        aria-label="Continuar"
+        class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-white/60 hover:text-white/90 transition-colors animate-bounce"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+        >
+          <path d="M12 5v14M5 12l7 7 7-7" />
+        </svg>
+      </a>
+
+      <!-- Botão mute/unmute -->
+      <button
+        id="mute-btn"
+        onclick="toggleMute()"
+        aria-label="Ativar/desativar som"
+        class="absolute bottom-8 right-6 z-10 w-9 h-9 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/25 transition-all"
+      >
+        <!-- Ícone muted (padrão) -->
+        <svg
+          id="icon-muted"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+        >
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+          <line x1="23" y1="9" x2="17" y2="15" />
+          <line x1="17" y1="9" x2="23" y2="15" />
+        </svg>
+        <!-- Ícone com som (escondido) -->
+        <svg
+          id="icon-sound"
+          class="hidden"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+        >
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+        </svg>
+      </button>
     </section>
 
     <!-- ── SOBRE ──────────────────────────────────────── -->
