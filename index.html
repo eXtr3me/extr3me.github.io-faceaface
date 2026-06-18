@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Patrícia dos Santos — Psicóloga Clínica & Corporal</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inclui o SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+  emailjs.init("NUnderPkT9kyFl9xE")
+
+  document.getElementById("emailsend").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm("nome", "email", "tel", "msg", this)
+      .then(() => alert("E-mail enviado!"))
+      .catch((err) => console.error("Erro:", err));
+  });
+</script>
     <link
       href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAGgMGAP8AJgBPRUYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARERERERAAAREiIiIhEQAxEiERESIREDEiERIhEiEQMiIREiERIhAyIhERERESEDIiIRERERIQMiIiIhEREhAyIiIiIhESEDIiIiIiIRIQMiIiESIhIhAxIiIRIiIhEDMSIiIiIhEQAzEiIiIhEQAAMREREREQD//wAA4AMAAMABAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAMABAADgAwAA"
       rel="icon"
@@ -502,10 +516,6 @@
           <div
             class="card-service bg-white border border-warm-200 rounded-2xl p-6"
           >
-          <a href="massagem.html">
-            <div
-              class="w-10 h-10 rounded-xl bg-sage-50 flex items-center justify-center mb-4"
-            >
               <svg
                 width="22"
                 height="22"
@@ -757,22 +767,6 @@
               WhatsApp: (+351) 966 046 488
             </a>
           </div>
-          <div class="flex justify-center">
-            <div
-              class="w-full rounded-2xl bg-sage-100 flex flex-col items-center justify-center text-sage-400 gap-3 rounded-xl3xl overflow-hidden"
-            />
-            <img
-              src="./assets/Online.jpeg"
-              alt="Consultório"
-              class="w-full h-full rounded-2xl object-cover"
-              onerror="
-                this.style.display = 'none'
-                this.nextElementSibling.style.display = 'flex'
-              "
-            />
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- ── CONTACTOS ──────────────────────────────────── -->
@@ -874,7 +868,7 @@
           <h3 class="font-body font-medium text-stone-700 mb-5">
             Enviar mensagem
           </h3>
-          <form class="space-y-4" onsubmit="handleFormSubmit(event)">
+          <form name="emailsend" class="space-y-4" onsubmit="handleFormSubmit(event)">
             <div>
               <label class="block text-xs text-stone-500 mb-1.5" for="nome"
                 >Nome</label
